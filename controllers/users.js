@@ -20,5 +20,12 @@ module.exports = {
       message: `User with id #${req.params.id} fetched`,
       user
     })
+  },
+  orderByAge: async (req, res) => {
+    const users = await User.find().sort({ age: 1 })
+
+    res.send({
+      users: users
+    })
   }
 }
